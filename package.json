@@ -1,0 +1,13 @@
+{
+  "name": "twitterapi",
+  "version": "0.0.1",
+  "description": "a simple node.js project",
+  "private": false,
+  "dependencies": {
+    "express": "3.x",
+    "hbs": "*"
+  },
+  "devDependencies": {
+    "gulp-uglify": "^1.2.0"
+  }
+}
