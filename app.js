@@ -11,6 +11,9 @@ var T = new Twit({
 })    
  
 var app = express();
+
+//For Heroku
+app.set('port', (process.env.PORT || 5000));
  
 app.set('view engine', 'hbs');
 app.set('views', path.join(__dirname, 'views'));
@@ -41,7 +44,7 @@ app.param('hashtag', function(req, res, next, hashtag){
 	next();
 });
 
-app.listen(3000);
-console.log('Your app is now running at: http://127.0.0.1:3000/');
+//app.listen(3000);
+//console.log('Your app is now running at: http://127.0.0.1:3000/');
 
 
