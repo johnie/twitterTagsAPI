@@ -1,7 +1,7 @@
 var express = require('express'),
     cors = require('express-cors'),
     path = require('path'),
-	Twit = require('twit');
+	  Twit = require('twit');
 
 var T = new Twit({
     consumer_key:         'vLs7djQMnHrzl8LUtS3fE4ctp'
@@ -14,7 +14,8 @@ var app = express();
 
 //For Heroku
 app.set('port', (process.env.PORT || 5000));
- 
+//app.use(express.static(__dirname + '/public'));
+
 app.set('view engine', 'hbs');
 app.set('views', path.join(__dirname, 'views'));
 
@@ -46,5 +47,10 @@ app.param('hashtag', function(req, res, next, hashtag){
 
 //app.listen(3000);
 //console.log('Your app is now running at: http://127.0.0.1:3000/');
+
+app.listen(app.get('port'), function() {
+  console.log('Node app is running on port', app.get('port'));
+});
+
 
 
