@@ -6,7 +6,6 @@ var rename = require('gulp-rename');
 gulp.task('sass', function () {
     gulp.src('public/*.scss')
         .pipe(sass())
-        .pipe(rename({suffix: '.min'})) 
         .pipe(gulp.dest('./public/css'));
 });
  
