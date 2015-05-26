@@ -73,6 +73,8 @@ document.getElementById('hashtag').addEventListener('keyup', function() {
     var theAlertDiv;
     theAlertDiv = document.getElementById('alert'); 
 
+    theAlertDiv.classList.add('collapse'); 
+
       if (field === '#') {
 
         theAlertDiv.classList.remove('collapse');   
@@ -86,6 +88,6 @@ document.getElementById('hashtag').addEventListener('keyup', function() {
         theAlertDiv.innerHTML = 'Please do not enter any space (hashtags are written as <strong>one word</strong>)';
 
       } 
-
+        
 });              
     
