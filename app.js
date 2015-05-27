@@ -4,17 +4,16 @@ var express = require('express'),
 	  Twit = require('twit');
 
 var T = new Twit({
-    consumer_key:         'vLs7djQMnHrzl8LUtS3fE4ctp'
-  , consumer_secret:      'Hs7C5lbNkHB4mFzIIkg3Fa8zQb0MZ7uSM5WEbMxWN9GqKDlilB'
-  , access_token:         '1546166371-iFR3DNltdMB04umxgiEjgSRMpLlW9Tel7cZ64aW'
-  , access_token_secret:  '1rgnYbXeljc7SSsDJ7TI3WvlDvsRfsFFa6Z5dmDlQMZpC'
+    consumer_key:         ''
+  , consumer_secret:      ''
+  , access_token:         ''
+  , access_token_secret:  ''
 })    
  
 var app = express();
 
 //For Heroku
 app.set('port', (process.env.PORT || 5000));
-//app.use(express.static(__dirname + '/public'));
 
 app.set('view engine', 'hbs');
 app.set('views', path.join(__dirname, 'views'));
@@ -44,9 +43,6 @@ app.param('hashtag', function(req, res, next, hashtag){
 	req.hashtag = hashtag;
 	next();
 });
-
-//app.listen(3000);
-//console.log('Your app is now running at: http://127.0.0.1:3000/');
 
 app.listen(app.get('port'), function() {
   console.log('Node app is running on port', app.get('port'));
