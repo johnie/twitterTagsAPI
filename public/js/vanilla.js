@@ -1,14 +1,16 @@
-document.getElementById('submitButton').addEventListener('click', function() { getCORS(url); 
-
-  var field;
-      field = document.getElementById('hashtag').value;
-
-  var url = '/api/search/' + field;
+document.getElementById('submitButton').addEventListener('click', getCORS); 
 
     function getCORS(url) {
 
+        var field;
+        field = document.getElementById('hashtag').value;
+
+        var url = '/api/search/' + field;
+
         var xhr = new XMLHttpRequest();
         xhr.open('GET', url);
+
+        xhr.send();
         xhr.onreadystatechange = function() {
 
           if (this.status == 200 && this.readyState == 4) {
@@ -42,22 +44,30 @@ document.getElementById('submitButton').addEventListener('click', function() { g
 
             } 
 
-          } 
+          } else if (this.status == 404) { 
+
+            console.log('404'); 
+
+            showAlertDiv('Oops. Something went wrong.');
+
+          }
 
         };
 
-        xhr.send();
         return xhr;
     }
 
-    getCORS(url, function(request){
 
-        response = request.currentTarget.response || request.target.responseText;
-        console.log(response);      
-        
-    });
+function showAlertDiv(message) {
 
-});
+  var theAlertDiv;
+  theAlertDiv = document.getElementById('alert'); 
+
+  theAlertDiv.classList.remove('collapse');   
+
+  theAlertDiv.innerHTML = message;
+
+}
 
 
 // Input Validation
@@ -77,15 +87,11 @@ document.getElementById('hashtag').addEventListener('keyup', function() {
 
       if (field === '#') {
 
-        theAlertDiv.classList.remove('collapse');   
-
-        theAlertDiv.innerHTML = 'Please start your query <strong>without</strong> the hashtag';
+        showAlertDiv('Please start your query <strong>without</strong> the hashtag'); 
 
       } else if (space !== -1 ) { 
 
-        theAlertDiv.classList.remove('collapse'); 
-
-        theAlertDiv.innerHTML = 'Please do not enter any space (hashtags are written as <strong>one word</strong>)';
+        showAlertDiv('Please do not enter any space (hashtags are written as <strong>one word</strong>)'); 
 
       } 
         

@@ -15,27 +15,30 @@ var app = express();
 //For Heroku
 app.set('port', (process.env.PORT || 5000));
 
-app.set('view engine', 'hbs');
-app.set('views', path.join(__dirname, 'views'));
-
-app.use(express.static('static'));
-app.use(express.static(path.join(__dirname, 'public')));
- 
 app.use(cors({
     allowedOrigins: [
         'twitter.com'
     ]
 }));
 
-app.get('/', function(req, res) {
-    res.render('index');
+app.use(express.static(__dirname + '/views'));
+app.use(express.static(__dirname + '/public'));
+
+app.get('/',function(req,res){
+  res.sendFile('index.html');
 });
  
 app.get('/api/search/:hashtag', function(req, res){ 
 
 	T.get('search/tweets', { q: '#'+req.hashtag, count: 10 }, function(err, data, response) {
-	  res.jsonp(data); 
-	  console.log(data)
+
+    if (err !== null) {
+      res.send({ ok: false, message: 'error while fetching' });
+      console.log('fetch error', err);
+    } else {
+      res.json(data); 
+      console.log(data);
+    }
 	});
 });
 
