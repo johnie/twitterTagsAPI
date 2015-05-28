@@ -102,11 +102,3 @@ footer {
     padding-top: 1em; }
   .panel-body {
     height: 8em; } }
-
-div, span {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  font-size: 100%;
-  font: inherit;
-  vertical-align: baseline; }
