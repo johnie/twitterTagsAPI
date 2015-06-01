@@ -102,3 +102,16 @@ footer {
     padding-top: 1em; }
   .panel-body {
     height: 8em; } }
+
+/* Firefox fix
+-------------------------------------------------- */
+#hashtag, input::-moz-focus-inner {
+  height: 57px; }
+
+/* Safari fix
+-------------------------------------------------- */
+_::-webkit-full-page-media, _:future, :root #hashtag, :root #submitButton {
+  height: 57px; }
+
+_::-webkit-full-page-media, _:future, :root #hashtag {
+  border-right: 0; }
