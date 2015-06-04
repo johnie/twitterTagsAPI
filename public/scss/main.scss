@@ -53,7 +53,6 @@ a:hover, a:focus {
   font-size: 1.14em;
 }
 
-
 /* Button styles
 -------------------------------------------------- */
 
@@ -67,7 +66,6 @@ a:hover, a:focus {
   border-radius: 0 0.3em 0.3em 0;
   padding: 0.56em 0.56em;
 }
-
 
 /* Tweets section
 -------------------------------------------------- */
@@ -119,54 +117,4 @@ footer {
   color: #fff;
 }
 
-/* Responsive styles
--------------------------------------------------- */
-
-@media all and (min-width: 1000px) {
-
-	#tweets div {
-		padding-top: 1em;
-	}
-
-  .panel-body {
-    height: 8em;
-  }  
-
-}
-
-@media all and (max-height: 569px) {
-
-  #main {
-    padding-top: 6em;
-  }
-
-}
-
-@media all and (max-height: 481px) {
-
-  #main h2 {
-    font-size: 2.4em;
-  }
-
-}
-
-
-/* Firefox fix
--------------------------------------------------- */
-#hashtag, input::-moz-focus-inner { 
-  height: 57px;
-}
-
-/* Safari fix
--------------------------------------------------- */
-_::-webkit-full-page-media, _:future, :root #hashtag, :root #submitButton {   
-  height: 57px;   
-}
-
-_::-webkit-full-page-media, _:future, :root #hashtag {   
-  border-right: 0;  
-}
-
-
-
-
+@import 'responsive';
